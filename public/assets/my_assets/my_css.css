@@ -5,6 +5,12 @@
     font-size: .875em;
 }
 
+.parsley-errors-list {
+  color: red;
+  list-style-type: none;
+  padding: 0;
+}
+
 .btn-action {
     width: 100%;
 }

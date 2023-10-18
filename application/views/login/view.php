@@ -34,12 +34,10 @@
                     <div class="form-group">
                         <label>Username</label>
                         <?= form_input(array('name' => 'username', 'id' => 'username', 'class' => 'form-control form-control-sm', 'placeholder' => 'Username')) ?>
-                        <small class="help-block form-text error"></small>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
                         <?= form_password(array('name' => 'password', 'id' => 'password', 'class' => 'form-control form-control-sm', 'placeholder' => 'Password')) ?>
-                        <small class="help-block form-text error"></small>
                     </div>
                     <?= form_input(array('type' => 'submit', 'name' => 'login', 'value' => 'Login', 'id' => 'login', 'class' => 'btn btn-success btn-flat m-b-30 m-t-30')) ?>
                     <?= form_close() ?>

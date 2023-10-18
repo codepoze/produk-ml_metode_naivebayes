@@ -18,6 +18,7 @@ class Dashboard extends MY_Controller
             'criteria'       => $this->m_criteria->get_all()->num_rows(),
             'criteria_sub'   => $this->m_criteria_sub->get_all()->num_rows(),
             'classification' => $this->m_criteria_sub->get_all()->num_rows(),
+            'consultation'   => $this->m_consultation->get_all()->num_rows(),
             'datatraining'   => count($this->_get_datatraining()),
         ];
         // untuk load view

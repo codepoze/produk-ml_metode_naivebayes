@@ -31,12 +31,6 @@ a {
   }
 }
 
-.parsley-errors-list {
-  color: red;
-  list-style-type: none;
-  padding: 0;
-}
-
 a:focus,
 a:hover {
   text-decoration: none;

@@ -112,6 +112,21 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <i class="fa fa-list f-28 text-c-orenge"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <h6 class="text-muted m-b-0">Consultation</h6>
+                                        <h4><?= $consultation ?></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

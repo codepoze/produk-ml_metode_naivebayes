@@ -80,7 +80,14 @@
         </ul>
         <div class="pcoded-navigation-label">Laporan</div>
         <ul class="pcoded-item pcoded-left-item">
-
+            <li class="<?= ($this->uri->segment(2) === 'report' ? 'active' : '') ?>">
+                <a href="<?= admin_url() ?>report">
+                    <span class="pcoded-micon">
+                        <i class="fa fa-list"></i>
+                    </span>
+                    <span class="pcoded-mtext">History Consultation</span>
+                </a>
+            </li>
         </ul>
         <!-- end:: menu sidebar -->
     </div>

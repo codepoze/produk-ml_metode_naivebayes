@@ -17,9 +17,6 @@
 
 <body class="flat">
     <div id="particles-js"></div>
-    <a href="#" class="logo-link" title="back home">
-        <img src="<?= assets_url() ?>admin/images/logo.png" class="logo" alt="Company's logo" />
-    </a>
     <div class="content">
         <div class="content-box">
             <div class="big-content">
