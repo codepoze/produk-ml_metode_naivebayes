@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/icon/feather/css/feather.css" />
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>admin/css/widget.css" />
+    <link rel="stylesheet" type="text/css" href="<?= assets_url() ?>my_assets/my_css.css" />
 
     <!-- begin:: css local -->
     <?php empty($css) ? '' : $this->load->view($css); ?>

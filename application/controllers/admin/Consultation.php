@@ -49,32 +49,6 @@ class Consultation extends MY_Controller
         debug($data_test);
     }
 
-    public function _clasification()
-    {
-        $clasification = $this->m_classification->get_all()->result();
-
-        $result = [];
-
-        foreach ($clasification as $key => $value) {
-            $result[$value->id_classification] = $value->nama;
-        }
-
-        return $result;
-    }
-
-    public function _criteria_sub()
-    {
-        $criteria_sub = $this->m_criteria_sub->get_all()->result();
-
-        $result = [];
-
-        foreach ($criteria_sub as $key => $value) {
-            $result[$value->id_criteria][$value->nilai] = $value->nama;
-        }
-
-        return $result;
-    }
-
     public function results($id)
     {
         $get_consultation = $this->crud->gda('tb_consultation', ['id_consultation' => $id]);
@@ -84,16 +58,6 @@ class Consultation extends MY_Controller
         $data_training       = $this->_get_datatraining();
         $data_criteria       = $this->m_criteria->get_all()->result();
         $data_classification = $this->m_classification->get_all()->result();
-
-        $a = $this->processCountClassification($data_training);
-
-        $b = $this->processCountCriteriaClassification($data_training, $a);
-
-        $c = $this->processCountCriteriaProbabilitas($a, $b);
-
-        $d = $this->processGetResultProbabilitas($a, $c);
-
-        // debug($data_training, $a, $b, $c, $d);
 
         $data = [
             'ini'                 => $this,
@@ -122,26 +86,16 @@ class Consultation extends MY_Controller
         return $result;
     }
 
-    public function _get_datatraining()
+    public function _clasification()
     {
-        $datatraining = $this->db->query("SELECT d.id_classification, d.count, c.nama FROM tb_datatraining AS d LEFT JOIN tb_classification AS c ON c.id_classification = d.id_classification GROUP BY d.count, d.id_classification ORDER BY d.count, d.id_classification ASC");
-        $result = [];
-        foreach ($datatraining->result() as $k_a => $v_a) {
-            $datatraining_detail = $this->db->query("SELECT d.id_classification, d.id_criteria, d.count, d.nilai FROM tb_datatraining AS d WHERE d.count = '$v_a->count' AND d.id_classification = '$v_a->id_classification'");
-            foreach ($datatraining_detail->result() as $k_b => $v_b) {
-                $data[$v_a->id_classification][$v_a->count][$v_b->id_criteria] = [
-                    'label' => $this->_criteria_sub()[$v_b->id_criteria][$v_b->nilai],
-                    'nilai' => $v_b->nilai
-                ];
-            }
+        $clasification = $this->m_classification->get_all()->result();
 
-            $result[] = [
-                'classification' => $v_a->id_classification,
-                'count'          => $v_a->count,
-                'kriteria'       => $data[$v_a->id_classification][$v_a->count],
-                'nama'           => $v_a->nama,
-            ];
+        $result = [];
+
+        foreach ($clasification as $key => $value) {
+            $result[$value->id_classification] = $value->nama;
         }
+
         return $result;
     }
 

@@ -40,18 +40,39 @@ abstract class MY_Controller extends CI_Controller
     }
 
     // untuk simpan riwayat barang masuk keluar
-    public function _insert_in_out_item($no_transaksi, $jenis_transaksi, $kd_barang_or_bahan_baku, $jumlah)
+    public function _get_datatraining()
     {
-        $data = [
-            'no_transaksi'            => $no_transaksi,
-            'jenis_transaksi'         => $jenis_transaksi,
-            'kd_barang_or_bahan_baku' => $kd_barang_or_bahan_baku,
-            'jumlah'                  => $jumlah
-        ];
-        $this->db->trans_start();
-        $this->crud->i('tb_barang_masuk_keluar', $data);
-        $this->db->trans_complete();
+        $datatraining = $this->db->query("SELECT d.id_classification, d.count, c.nama FROM tb_datatraining AS d LEFT JOIN tb_classification AS c ON c.id_classification = d.id_classification GROUP BY d.count, d.id_classification ORDER BY d.count, d.id_classification ASC");
+        $result = [];
+        foreach ($datatraining->result() as $k_a => $v_a) {
+            $datatraining_detail = $this->db->query("SELECT d.id_classification, d.id_criteria, d.count, d.nilai FROM tb_datatraining AS d WHERE d.count = '$v_a->count' AND d.id_classification = '$v_a->id_classification'");
+            foreach ($datatraining_detail->result() as $k_b => $v_b) {
+                $data[$v_a->id_classification][$v_a->count][$v_b->id_criteria] = [
+                    'label' => $this->_criteria_sub()[$v_b->id_criteria][$v_b->nilai],
+                    'nilai' => $v_b->nilai
+                ];
+            }
 
-        return $this->db->trans_status();
+            $result[] = [
+                'classification' => $v_a->id_classification,
+                'count'          => $v_a->count,
+                'kriteria'       => $data[$v_a->id_classification][$v_a->count],
+                'nama'           => $v_a->nama,
+            ];
+        }
+        return $result;
+    }
+
+    public function _criteria_sub()
+    {
+        $criteria_sub = $this->m_criteria_sub->get_all()->result();
+
+        $result = [];
+
+        foreach ($criteria_sub as $key => $value) {
+            $result[$value->id_criteria][$value->nilai] = $value->nama;
+        }
+
+        return $result;
     }
 }

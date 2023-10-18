@@ -29,10 +29,88 @@
             <div class="page-body">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Selamat Datang</h3>
+                        <h3>Machine Learning Metode Naive Bayes</h3>
                     </div>
                     <div class="card-block table-border-style">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, nam architecto quibusdam laudantium itaque quia vitae accusamus neque modi quas inventore, obcaecati temporibus a sequi dolore nihil ab eos? Asperiores.
+                        Algoritma Naive Bayes merupakan sebuah pengklasifikasian probabilistik sederhana yang menghitung sekumpulan probabilitas dengan menjumlahkan frekuensi dan kombinasi nilai dari dataset yang diberikan.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <i class="fa fa-list f-28 text-c-yellow"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <h6 class="text-muted m-b-0">Criteria</h6>
+                                        <h4><?= $criteria ?></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <i class="fa fa-list f-28 text-c-green"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <h6 class="text-muted m-b-0">Sub Criteria</h6>
+                                        <h4><?= $criteria_sub ?></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <i class="fa fa-list f-28 text-c-blue"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <h6 class="text-muted m-b-0">Assessment</h6>
+                                        <h4><?= $criteria_sub ?></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <i class="fa fa-list f-28 text-c-red"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <h6 class="text-muted m-b-0">Classification</h6>
+                                        <h4><?= $classification ?></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                        <i class="fa fa-list f-28 text-c-black"></i>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <h6 class="text-muted m-b-0">Data Training</h6>
+                                        <h4><?= $datatraining ?></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
