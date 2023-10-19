@@ -68,7 +68,7 @@ class Consultation extends MY_Controller
         ];
 
         // untuk load view
-        $this->template->load('admin', 'Hasil Konsultasi', 'consultation', 'result', $data);
+        $this->template->load('admin', 'Result', 'consultation', 'result', $data);
     }
 
     public function _get_assessment()

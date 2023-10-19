@@ -8,12 +8,13 @@
                 </div>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.html">
-                            <i class="feather icon-home"></i>
-                        </a>
+                        <a href="<?= admin_url() ?>">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="#!">Dashboard</a>
+                        <a href="<?= admin_url('consultation') ?>">Consultation</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#!"><?= $title ?></a>
                     </li>
                 </ul>
             </div>
